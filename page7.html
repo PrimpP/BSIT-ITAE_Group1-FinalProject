@@ -1,0 +1,379 @@
+<!Doctype html>
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+		    }
+
+            hr{
+                width: 80%;
+                margin: auto;
+                background-color: grey;
+            }
+
+		    button:hover {
+			    opacity: 0.8;
+		    }
+
+            .btn1{
+                background-color: coral;
+                padding: 5px;
+                border-radius: 10px;
+                border: 0px;
+                color: #fff;
+                width: 15em;
+                font-weight: bold;
+                font-size: 15px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .btn-container{
+                text-align: center;
+            }
+
+            .btn2{
+                background-color: coral;
+                padding: 5px;
+                border-radius: 10px;
+                border: 0px;
+                color: #fff;
+                width: 15em;
+                font-weight: bold;
+                font-size: 15px;
+                text-align: center;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+
+            .bodyH3{
+                text-align: center;
+                font-size: 25px;
+                padding-top: 10px;
+                padding-bottom: 30px;
+                color: red;
+            }
+
+            #navH1{
+                font-size: 50px;
+                color: #ffff;
+                text-align: center;
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+
+            #bodyH1{
+                padding-top: 20px;
+                font-size: 40px;
+                text-align: center;
+            }
+
+            #wrapper{
+                margin: 20px;
+            }
+
+            #flex-container{
+                display: flex;
+                justify-content: center;
+            }
+
+            #BodyH3{
+                padding: 40px 0 0 40px;
+            }
+
+            .card{
+                border: 4px solid darkblue;
+                width: 20em;
+                height: 20em;
+                margin: 10px;
+                border-radius: 20px;
+            }
+
+            .img-container{
+                text-align: center;
+            }
+
+            div img{
+                margin: 10px 0 50px 0;
+                width: 100px;
+                height: 100px;
+            }
+
+            a img{
+                width: 35px;
+                height: 35px;
+		    }
+
+            .heading{
+                background-color: #ff5757;
+                width: 100%;
+                margin-top: -10px;
+		    }
+
+            .search {
+                width: 25px;
+                height: 25px;
+                margin-top: -20px;
+		    }
+
+            .bell {
+                margin-top:-20px;
+                margin-right: 10px;
+            }
+
+            .right {
+                float: right;
+                margin-top: -18px;
+                padding-bottom: -10px;
+		    }
+
+            #menuToggle {
+                display: block;
+                position: relative;
+                margin-top: 10px;
+                top: 15px;
+                left: 15px;
+                z-index: 1;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+
+            #menuToggle a:hover {
+                color: #ff5757;
+            }
+
+            #menuToggle a {
+                text-decoration: none;
+                color:white;
+                transition: color 0.3s ease;
+            }
+
+            #menuToggle input {
+                display: block;
+                width: 40px;
+                height: 32px;
+                margin-top: 10px;
+                position: absolute;
+                top: -7px;
+                left: -5px;
+                cursor: pointer;
+                opacity: 0; 
+                z-index: 2; 
+                -webkit-touch-callout: none;
+            }
+
+            #menuToggle span {
+                display: block;
+                width: 33px;
+                height: 4px;
+                margin-bottom: 5px;
+                position: relative;
+                background: black;
+                border-radius: 3px;
+                z-index: 1;
+                transform-origin: 4px 0px;
+                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+            }
+
+            #menuToggle span:first-child {
+                transform-origin: 0% 0%;
+            }
+
+            #menuToggle span:nth-last-child(2) {
+                transform-origin: 0% 100%;
+            }
+
+            #menuToggle input:checked ~ span {
+                opacity: 1;
+                transform: rotate(45deg) translate(-2px, -1px);
+                background: white;
+            }
+
+            #menuToggle input:checked ~ span:nth-last-child(3) {
+                opacity: 0;
+                transform: rotate(0deg) scale(0.2, 0.2);
+            }
+
+            #menuToggle input:checked ~ span:nth-last-child(2) {
+                transform: rotate(-45deg) translate(0, -1px);
+            }
+
+            #menu {
+                position: absolute;
+                width: 150px;
+                margin: -100px 0 0 -30px;
+                padding: 30px;
+                padding-top: 125px;
+                background: black;
+                list-style-type: none;
+                -webkit-font-smoothing: antialiased;
+                transform-origin: 0% 0%;
+                transform: translate(-100%, 0);
+                transition: transform 0.5s cubic-bezier(0.10,0.1,0.05,0.8);
+            }
+
+            #menu li {
+                padding: 10px 0;
+                font-size: 22px;
+            }
+
+            #menuToggle input:checked ~ ul {
+                transform: none;
+            }
+
+            .buttons:hover {
+                background-color: #ff5757;
+            }
+
+            .buttons{
+                background-color: whitesmoke;
+                padding: 15px 8em;
+                margin: 4px 2px;
+                text-align: center;
+                display: flex;
+            }
+
+            #next, #back{
+                border: none;
+                font-size: 25px;
+                padding: 7.5px 0;
+                background: none;
+                align-items: center;
+            }
+
+            #next > a, #back > a{
+                color: #000;
+                text-decoration: none;
+                font-weight: lighter;
+            }
+            #next > a:hover, #back > a:hover{
+                text-decoration: none;
+                font-weight: bold;
+                color: #fff;
+            }
+
+            #next{
+                margin-right: 60px;
+            }
+
+            @media screen and (max-width: 480px) {
+                #navH1 {
+                    font-size: 40px;
+                    width: 80%;
+                    margin: auto;
+                }
+                #bodyH1{
+                    font-size: 35px;
+                }
+                #BodyH3{
+                    font-size: 15px;
+                    margin-bottom: 10px;
+
+                }
+                #flex-container{
+                    display: block;
+                }
+                .card {
+                    margin: auto;
+                    margin-bottom: 25px;
+                    width: 15.5em;
+                }
+
+            }	
+
+        </style>
+    </head>
+    <body>
+        <div class="heading">
+            <nav role="navigation">
+                <div id="menuToggle">
+                    <input type="checkbox" />
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    <ul id="menu">
+                        <a href="#"><li>Home</li></a>
+                        <a href="#"><li>About</li></a>
+                        <a href="#"><li>Info</li></a>
+                        <a href="#"><li>Contact</li></a>
+                    </ul>
+                </div>
+                <div class="right">
+                <a href="#" class="search"><img src="search.png"></a>
+                <a href="#" class="bell"><img src="bell.png"></a>
+                </div>
+            </nav>
+            <h1 id="navH1">Welcome to FIT INSPIRE!</h1>
+        </div> 
+
+        <div id="wrapper">
+            <h1 id="bodyH1">Online Instructor</h1>
+            <h3 id="BodyH3">Recommended</h3>
+            <div id="flex-container">
+                <div class="card">
+                    <h3 class="bodyH3">Juana Dela Cruz</h3>
+                    <hr>
+                    <div class="img-container">
+                        <img src="instructor.png" alt="">
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn1"><h3>Details</h3></button>
+                        <br>
+                        <button class="btn2"><h3>Join Class</h3></button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="bodyH3">Petra Penduko</h3>
+                    <hr>
+                    <div class="img-container">
+                        <img src="instructor.png" alt="">
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn1"><h3>Details</h3></button>
+                        <br>
+                        <button class="btn2"><h3>Join Class</h3></button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="bodyH3">Cardy Dalisay</h3>
+                    <hr>
+                    <div class="img-container">
+                        <img src="instructor.png" alt="">
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn1"><h3>Details</h3></button>
+                        <br>
+                        <button class="btn2"><h3>Join Class</h3></button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="bodyH3">Baby Villar</h3>
+                    <hr>
+                    <div class="img-container">
+                        <img src="instructor.png" alt="">
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn1"><h3>Details</h3></button>
+                        <br>
+                        <button class="btn2"><h3>Join Class</h3></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="buttons">
+            <h1 id="next"><a href="#">Done</h1>
+            <h1 id="back"><a href="lastpage.html">Back</h1>
+        </div>
+    </body>
+</html>
